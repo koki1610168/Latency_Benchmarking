@@ -53,6 +53,17 @@ Start the client (in terminal 2):
 ```
 The client will output RTT in nanosecond for each message. \
 It also outputs an average RTT in nanosecond.
+
+### Sample Output
+```
+RTT: 37300 ns
+RTT: 39209 ns
+    .
+    .
+    .
+RTT: 36325
+Average RTT over 1000 messages: 36003.6 ns
+```
 ## License
 MIT License 
 MIT License © 2025 Koki Yahata
