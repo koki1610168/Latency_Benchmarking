@@ -16,4 +16,18 @@ add_executable(server
     src/socket_wrapper.cpp
 )
 
-# add_executable(main src/main.cpp)
+# Add Google Test
+add_subdirectory(external/googletest)
+enable_testing()
+
+add_executable(tests
+    tests/test_socket_wrapper.cpp
+    src/socket_wrapper.cpp
+)
+
+target_link_libraries(tests
+    gtest
+    gtest_main
+)
+
+add_test(NAME socket_wrapper_tests COMMAND tests)

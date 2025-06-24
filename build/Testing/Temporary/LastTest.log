@@ -1,0 +1,29 @@
+Start testing: Jun 24 06:39 CDT
+----------------------------------------------------------
+1/1 Testing: socket_wrapper_tests
+1/1 Test: socket_wrapper_tests
+Command: "/home/koki/projects/latency-benchmarking/build/tests"
+Directory: /home/koki/projects/latency-benchmarking/build
+"socket_wrapper_tests" start time: Jun 24 06:39 CDT
+Output:
+----------------------------------------------------------
+Running main() from /home/koki/projects/latency-benchmarking/external/googletest/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SocketWrapperTest
+[ RUN      ] SocketWrapperTest.TCPBindAndListenDoesNotThrow
+[       OK ] SocketWrapperTest.TCPBindAndListenDoesNotThrow (0 ms)
+[----------] 1 test from SocketWrapperTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"socket_wrapper_tests" end time: Jun 24 06:39 CDT
+"socket_wrapper_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 24 06:39 CDT

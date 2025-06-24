@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/tests.dir/tests/test_socket_wrapper.cpp.o CMakeFiles/tests.dir/src/socket_wrapper.cpp.o -o tests  lib/libgtest.a lib/libgtest_main.a lib/libgtest.a 
