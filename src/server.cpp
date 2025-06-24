@@ -3,23 +3,20 @@
 #include <cstring>
 
 int main() {
-    try {
-        SocketWrapper server;
-        server.bindAndListen(12345);
-        std::cout << "Server listening on port 12345" << std::endl;
+    SocketWrapper server;
+    server.bindAndListen(12345);
+    // std::cout << "Server listening on port 12345" << std::endl;
 
-        server.acceptClient();
-        std::cout << "Client connected" << std::endl;
+    server.acceptClient();
+    // std::cout << "Client connected" << std::endl;
 
-        char buffer[128] = {};
-        server.receive(buffer, sizeof(buffer));
-
-        std::cout << "Received from client: " << buffer << std::endl;
-
-        const char* message = "I received your message, Koki";
-        server.send(message, std::strlen(message));
-        std::cout << "Echoed message back to client" << std::endl;
-    } catch (const std::exception& ex) {
-        std::cerr << "Server error: " << ex.what() << std::endl;
+    char buffer[128];
+    while (true) {
+        ssize_t n = server.receive(buffer, sizeof(buffer));
+        if (n <= 0) break;
+        server.send(buffer, n);
     }
+    std::cout << "Server shutting down." << std::endl;
+    return 0;
+
 }
