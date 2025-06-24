@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/client.dir/src/server.cpp.o"
-  "CMakeFiles/client.dir/src/server.cpp.o.d"
+  "CMakeFiles/client.dir/src/client.cpp.o"
+  "CMakeFiles/client.dir/src/client.cpp.o.d"
   "CMakeFiles/client.dir/src/socket_wrapper.cpp.o"
   "CMakeFiles/client.dir/src/socket_wrapper.cpp.o.d"
   "client"

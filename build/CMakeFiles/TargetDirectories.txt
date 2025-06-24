@@ -1,3 +1,4 @@
-/home/koki/projects/latency-benchmarking/build/CMakeFiles/main.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/client.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/server.dir
 /home/koki/projects/latency-benchmarking/build/CMakeFiles/edit_cache.dir
 /home/koki/projects/latency-benchmarking/build/CMakeFiles/rebuild_cache.dir

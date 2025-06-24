@@ -69,19 +69,19 @@ include CMakeFiles/client.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/client.dir/flags.make
 
-CMakeFiles/client.dir/src/server.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/src/server.cpp.o: /home/koki/projects/latency-benchmarking/src/server.cpp
-CMakeFiles/client.dir/src/server.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/server.cpp.o -MF CMakeFiles/client.dir/src/server.cpp.o.d -o CMakeFiles/client.dir/src/server.cpp.o -c /home/koki/projects/latency-benchmarking/src/server.cpp
+CMakeFiles/client.dir/src/client.cpp.o: CMakeFiles/client.dir/flags.make
+CMakeFiles/client.dir/src/client.cpp.o: /home/koki/projects/latency-benchmarking/src/client.cpp
+CMakeFiles/client.dir/src/client.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/client.cpp.o -MF CMakeFiles/client.dir/src/client.cpp.o.d -o CMakeFiles/client.dir/src/client.cpp.o -c /home/koki/projects/latency-benchmarking/src/client.cpp
 
-CMakeFiles/client.dir/src/server.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/src/server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/koki/projects/latency-benchmarking/src/server.cpp > CMakeFiles/client.dir/src/server.cpp.i
+CMakeFiles/client.dir/src/client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/koki/projects/latency-benchmarking/src/client.cpp > CMakeFiles/client.dir/src/client.cpp.i
 
-CMakeFiles/client.dir/src/server.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/koki/projects/latency-benchmarking/src/server.cpp -o CMakeFiles/client.dir/src/server.cpp.s
+CMakeFiles/client.dir/src/client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/koki/projects/latency-benchmarking/src/client.cpp -o CMakeFiles/client.dir/src/client.cpp.s
 
 CMakeFiles/client.dir/src/socket_wrapper.cpp.o: CMakeFiles/client.dir/flags.make
 CMakeFiles/client.dir/src/socket_wrapper.cpp.o: /home/koki/projects/latency-benchmarking/src/socket_wrapper.cpp
@@ -99,13 +99,13 @@ CMakeFiles/client.dir/src/socket_wrapper.cpp.s: cmake_force
 
 # Object files for target client
 client_OBJECTS = \
-"CMakeFiles/client.dir/src/server.cpp.o" \
+"CMakeFiles/client.dir/src/client.cpp.o" \
 "CMakeFiles/client.dir/src/socket_wrapper.cpp.o"
 
 # External object files for target client
 client_EXTERNAL_OBJECTS =
 
-client: CMakeFiles/client.dir/src/server.cpp.o
+client: CMakeFiles/client.dir/src/client.cpp.o
 client: CMakeFiles/client.dir/src/socket_wrapper.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: CMakeFiles/client.dir/link.txt
