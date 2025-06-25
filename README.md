@@ -45,12 +45,12 @@ make
 ### Running
 Start the server (in terminal 1):
 ```build
-./tcp_server (or./udp_server)
+./tcp_latency_server (or./udp_latency_server)
 ```
 
 Start the client (in terminal 2):
 ```build
-./tcp_client (or ./udp_client)
+./tcp_latency_client (or ./udp_latency_client)
 ```
 The client will output RTT in nanosecond for each message. \
 It also outputs an average RTT in nanosecond.
