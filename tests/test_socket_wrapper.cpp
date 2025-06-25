@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "socket_wrapper.hpp"
 #include <thread>
+#include <vector>
+#include <chrono>
 
 TEST(SocketWrapperTCPTest, TCPBindAndListenDoesNotThrow) {
     SocketWrapper server(Protocol::TCP);
@@ -12,38 +14,51 @@ TEST(SocketWrapperTCPTest, CanConnectToServer) {
     ASSERT_NO_THROW(server.bindAndListen(55556));
 
     std::thread server_thread([&]() {
-        server.acceptClient();
+        server.runEpollServerLoop();
     });
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     SocketWrapper client(Protocol::TCP);
     EXPECT_NO_THROW(client.connectToServer("127.0.0.1", 55556));
 
-    server_thread.join();
+    server_thread.detach();
 }
 
-TEST(SocketWrapperTCPTest, CanSendAndReceive) {
+TEST(SocketWrapperTCPTest, MultiClientConnections) {
     SocketWrapper server(Protocol::TCP);
     ASSERT_NO_THROW(server.bindAndListen(55557));
 
     std::thread server_thread([&]() {
-        server.acceptClient();
-
-        char buffer[128] = {};
-        server.receive(buffer, sizeof(buffer));
-        server.send("received", strlen("received"));
+        server.runEpollServerLoop();
     });
 
-    SocketWrapper client(Protocol::TCP);
-    ASSERT_NO_THROW(client.connectToServer("127.0.0.1", 55557));
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-    const char* msg = "sending message";
-    client.send(msg, sizeof(msg));
+    constexpr int client_count = 5;
+    std::vector<std::thread> clients;
 
-    char response[128] = {};
-    client.receive(response, sizeof(response));
+    for (int i = 0; i < client_count; ++i) {
+        clients.emplace_back([i]() {
+            try {
+                SocketWrapper client(Protocol::TCP);
+                ASSERT_NO_THROW(client.connectToServer("127.0.0.1", 55557));
+                const char* msg = "hello";
+                client.send(msg, 5);
 
-    EXPECT_STREQ(response, "received");
+                char buf[128];
+                int received = client.receive(buf, sizeof(buf));
+                ASSERT_GT(received, 0);
+            } catch (...) {
+                FAIL() << "Client " << i << "failed to connect or communicate" << std::endl;
+            }
+        });
+    }
 
-    server_thread.join();
+    for (auto& t : clients) {
+        t.join();
+    }
+
+    server_thread.detach();
 
 }

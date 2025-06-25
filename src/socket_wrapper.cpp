@@ -103,6 +103,11 @@ void SocketWrapper::runEpollServerLoop() {
                 int client_fd = accept(sockfd_, (sockaddr*)&client_addr, &client_len);
                 if (client_fd < 0) continue;
 
+                // Print new client connection info
+                char client_ip[INET_ADDRSTRLEN];
+                inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, sizeof(client_ip));
+                std::cout << "New client connected: " << client_ip << ":" << ntohs(client_addr.sin_port) << std::endl;
+
                 makeSocketNonBlocking(client_fd);
                 
                 // Add the newly created socket to epoll watchlist
