@@ -1,11 +1,19 @@
 #pragma once
 #include <string>
 #include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+enum class Protocol{
+    TCP,
+    UDP
+};
 
 
 class SocketWrapper {
     public:
-        SocketWrapper();
+        explicit SocketWrapper(Protocol protocol);
         ~SocketWrapper();
 
         // Server: binds to a port and starts listening for incoming connections
@@ -25,7 +33,9 @@ class SocketWrapper {
 
     private:
         int sockfd_; // listening socket, it stays open
-        int connfd_; // Connected socket, send/recv
+        int connfd_; // Connected socket, send/recv, only for TCP
         bool is_server_;
+        Protocol protocol_;
+        sockaddr_in last_sender_; // Used for UDP
 
 };

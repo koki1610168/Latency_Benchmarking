@@ -305,4 +305,16 @@ CMakeFiles/tests.dir/tests/test_socket_wrapper.cpp.o: \
  /home/koki/projects/latency-benchmarking/external/googletest/googletest/include/gtest/gtest-typed-test.h \
  /home/koki/projects/latency-benchmarking/external/googletest/googletest/include/gtest/gtest_pred_impl.h \
  /home/koki/projects/latency-benchmarking/external/googletest/googletest/include/gtest/gtest_prod.h \
- /home/koki/projects/latency-benchmarking/include/socket_wrapper.hpp
+ /home/koki/projects/latency-benchmarking/include/socket_wrapper.hpp \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ /usr/include/arpa/inet.h /usr/include/c++/11/thread

@@ -6,13 +6,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 
-add_executable(client
-    src/client.cpp
+add_executable(tcp_client
+    src/tcp_client.cpp
     src/socket_wrapper.cpp
 )
 
-add_executable(server
-    src/server.cpp
+add_executable(tcp_server
+    src/tcp_server.cpp
+    src/socket_wrapper.cpp
+)
+
+add_executable(udp_client
+    src/udp_client.cpp
+    src/socket_wrapper.cpp
+)
+
+add_executable(udp_server
+    src/udp_server.cpp
     src/socket_wrapper.cpp
 )
 
