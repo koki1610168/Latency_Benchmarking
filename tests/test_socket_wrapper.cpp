@@ -1,27 +1,28 @@
 #include <gtest/gtest.h>
 #include "socket_wrapper.hpp"
+#include <thread>
 
-TEST(SocketWrapperTest, TCPBindAndListenDoesNotThrow) {
-    SocketWrapper server;
+TEST(SocketWrapperTCPTest, TCPBindAndListenDoesNotThrow) {
+    SocketWrapper server(Protocol::TCP);
     EXPECT_NO_THROW(server.bindAndListen(55555));
 }
 
-TEST(SocketWrapperTest, CanConnectToServer) {
-    SocketWrapper server;
+TEST(SocketWrapperTCPTest, CanConnectToServer) {
+    SocketWrapper server(Protocol::TCP);
     ASSERT_NO_THROW(server.bindAndListen(55556));
 
     std::thread server_thread([&]() {
         server.acceptClient();
     });
 
-    SocketWrapper client;
+    SocketWrapper client(Protocol::TCP);
     EXPECT_NO_THROW(client.connectToServer("127.0.0.1", 55556));
 
     server_thread.join();
 }
 
-TEST(SocketWrapperTest, CanSendAndReceive) {
-    SocketWrapper server;
+TEST(SocketWrapperTCPTest, CanSendAndReceive) {
+    SocketWrapper server(Protocol::TCP);
     ASSERT_NO_THROW(server.bindAndListen(55557));
 
     std::thread server_thread([&]() {
@@ -32,7 +33,7 @@ TEST(SocketWrapperTest, CanSendAndReceive) {
         server.send("received", strlen("received"));
     });
 
-    SocketWrapper client;
+    SocketWrapper client(Protocol::TCP);
     ASSERT_NO_THROW(client.connectToServer("127.0.0.1", 55557));
 
     const char* msg = "sending message";

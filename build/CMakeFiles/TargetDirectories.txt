@@ -1,5 +1,7 @@
-/home/koki/projects/latency-benchmarking/build/CMakeFiles/client.dir
-/home/koki/projects/latency-benchmarking/build/CMakeFiles/server.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/tcp_client.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/tcp_server.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/udp_client.dir
+/home/koki/projects/latency-benchmarking/build/CMakeFiles/udp_server.dir
 /home/koki/projects/latency-benchmarking/build/CMakeFiles/tests.dir
 /home/koki/projects/latency-benchmarking/build/CMakeFiles/test.dir
 /home/koki/projects/latency-benchmarking/build/CMakeFiles/edit_cache.dir

@@ -1,33 +1,33 @@
-Start testing: Jun 24 08:04 CDT
+Start testing: Jun 24 21:04 CDT
 ----------------------------------------------------------
 1/1 Testing: socket_wrapper_tests
 1/1 Test: socket_wrapper_tests
 Command: "/home/koki/projects/latency-benchmarking/build/tests"
 Directory: /home/koki/projects/latency-benchmarking/build
-"socket_wrapper_tests" start time: Jun 24 08:04 CDT
+"socket_wrapper_tests" start time: Jun 24 21:04 CDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/koki/projects/latency-benchmarking/external/googletest/googletest/src/gtest_main.cc
 [==========] Running 3 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 3 tests from SocketWrapperTest
-[ RUN      ] SocketWrapperTest.TCPBindAndListenDoesNotThrow
-[       OK ] SocketWrapperTest.TCPBindAndListenDoesNotThrow (0 ms)
-[ RUN      ] SocketWrapperTest.CanConnectToServer
-[       OK ] SocketWrapperTest.CanConnectToServer (0 ms)
-[ RUN      ] SocketWrapperTest.CanSendAndReceive
-[       OK ] SocketWrapperTest.CanSendAndReceive (0 ms)
-[----------] 3 tests from SocketWrapperTest (0 ms total)
+[----------] 3 tests from SocketWrapperTCPTest
+[ RUN      ] SocketWrapperTCPTest.TCPBindAndListenDoesNotThrow
+[       OK ] SocketWrapperTCPTest.TCPBindAndListenDoesNotThrow (0 ms)
+[ RUN      ] SocketWrapperTCPTest.CanConnectToServer
+[       OK ] SocketWrapperTCPTest.CanConnectToServer (0 ms)
+[ RUN      ] SocketWrapperTCPTest.CanSendAndReceive
+[       OK ] SocketWrapperTCPTest.CanSendAndReceive (0 ms)
+[----------] 3 tests from SocketWrapperTCPTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 1 test suite ran. (0 ms total)
+[==========] 3 tests from 1 test suite ran. (1 ms total)
 [  PASSED  ] 3 tests.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"socket_wrapper_tests" end time: Jun 24 08:04 CDT
+"socket_wrapper_tests" end time: Jun 24 21:04 CDT
 "socket_wrapper_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 24 08:04 CDT
+End testing: Jun 24 21:04 CDT

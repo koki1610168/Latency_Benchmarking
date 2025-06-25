@@ -63,8 +63,10 @@ CMAKE_BINARY_DIR = /home/koki/projects/latency-benchmarking/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/client.dir/all
-all: CMakeFiles/server.dir/all
+all: CMakeFiles/tcp_client.dir/all
+all: CMakeFiles/tcp_server.dir/all
+all: CMakeFiles/udp_client.dir/all
+all: CMakeFiles/udp_server.dir/all
 all: CMakeFiles/tests.dir/all
 all: external/googletest/all
 .PHONY : all
@@ -74,8 +76,10 @@ preinstall: external/googletest/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/client.dir/clean
-clean: CMakeFiles/server.dir/clean
+clean: CMakeFiles/tcp_client.dir/clean
+clean: CMakeFiles/tcp_server.dir/clean
+clean: CMakeFiles/udp_client.dir/clean
+clean: CMakeFiles/udp_server.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: external/googletest/clean
 .PHONY : clean
@@ -132,56 +136,108 @@ external/googletest/googletest/clean: external/googletest/googletest/CMakeFiles/
 .PHONY : external/googletest/googletest/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/client.dir
+# Target rules for target CMakeFiles/tcp_client.dir
 
 # All Build rule for target.
-CMakeFiles/client.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=1,2,3 "Built target client"
-.PHONY : CMakeFiles/client.dir/all
+CMakeFiles/tcp_client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=9,10,11 "Built target tcp_client"
+.PHONY : CMakeFiles/tcp_client.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/client.dir/rule: cmake_check_build_system
+CMakeFiles/tcp_client.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tcp_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 0
-.PHONY : CMakeFiles/client.dir/rule
+.PHONY : CMakeFiles/tcp_client.dir/rule
 
 # Convenience name for target.
-client: CMakeFiles/client.dir/rule
-.PHONY : client
+tcp_client: CMakeFiles/tcp_client.dir/rule
+.PHONY : tcp_client
 
 # clean rule for target.
-CMakeFiles/client.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/clean
-.PHONY : CMakeFiles/client.dir/clean
+CMakeFiles/tcp_client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/clean
+.PHONY : CMakeFiles/tcp_client.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/server.dir
+# Target rules for target CMakeFiles/tcp_server.dir
 
 # All Build rule for target.
-CMakeFiles/server.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=12,13,14 "Built target server"
-.PHONY : CMakeFiles/server.dir/all
+CMakeFiles/tcp_server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=12,13,14 "Built target tcp_server"
+.PHONY : CMakeFiles/tcp_server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/server.dir/rule: cmake_check_build_system
+CMakeFiles/tcp_server.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tcp_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 0
-.PHONY : CMakeFiles/server.dir/rule
+.PHONY : CMakeFiles/tcp_server.dir/rule
 
 # Convenience name for target.
-server: CMakeFiles/server.dir/rule
-.PHONY : server
+tcp_server: CMakeFiles/tcp_server.dir/rule
+.PHONY : tcp_server
 
 # clean rule for target.
-CMakeFiles/server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
-.PHONY : CMakeFiles/server.dir/clean
+CMakeFiles/tcp_server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/clean
+.PHONY : CMakeFiles/tcp_server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/udp_client.dir
+
+# All Build rule for target.
+CMakeFiles/udp_client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=18,19,20 "Built target udp_client"
+.PHONY : CMakeFiles/udp_client.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/udp_client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/udp_client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 0
+.PHONY : CMakeFiles/udp_client.dir/rule
+
+# Convenience name for target.
+udp_client: CMakeFiles/udp_client.dir/rule
+.PHONY : udp_client
+
+# clean rule for target.
+CMakeFiles/udp_client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/clean
+.PHONY : CMakeFiles/udp_client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/udp_server.dir
+
+# All Build rule for target.
+CMakeFiles/udp_server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=21,22,23 "Built target udp_server"
+.PHONY : CMakeFiles/udp_server.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/udp_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/udp_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/koki/projects/latency-benchmarking/build/CMakeFiles 0
+.PHONY : CMakeFiles/udp_server.dir/rule
+
+# Convenience name for target.
+udp_server: CMakeFiles/udp_server.dir/rule
+.PHONY : udp_server
+
+# clean rule for target.
+CMakeFiles/udp_server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/clean
+.PHONY : CMakeFiles/udp_server.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/tests.dir
@@ -217,7 +273,7 @@ CMakeFiles/tests.dir/clean:
 external/googletest/googlemock/CMakeFiles/gmock.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f external/googletest/googlemock/CMakeFiles/gmock.dir/build.make external/googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/googletest/googlemock/CMakeFiles/gmock.dir/build.make external/googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=4,5 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=1,2 "Built target gmock"
 .PHONY : external/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -244,7 +300,7 @@ external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletes
 external/googletest/googlemock/CMakeFiles/gmock_main.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f external/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make external/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=6,7 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
 .PHONY : external/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -270,7 +326,7 @@ external/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 external/googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f external/googletest/googletest/CMakeFiles/gtest.dir/build.make external/googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/googletest/googletest/CMakeFiles/gtest.dir/build.make external/googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=8,9 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=5,6 "Built target gtest"
 .PHONY : external/googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -296,7 +352,7 @@ external/googletest/googletest/CMakeFiles/gtest.dir/clean:
 external/googletest/googletest/CMakeFiles/gtest_main.dir/all: external/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f external/googletest/googletest/CMakeFiles/gtest_main.dir/build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f external/googletest/googletest/CMakeFiles/gtest_main.dir/build.make external/googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=10,11 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/koki/projects/latency-benchmarking/build/CMakeFiles --progress-num=7,8 "Built target gtest_main"
 .PHONY : external/googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.

@@ -74,8 +74,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/client.dir/DependInfo.cmake"
-  "CMakeFiles/server.dir/DependInfo.cmake"
+  "CMakeFiles/tcp_client.dir/DependInfo.cmake"
+  "CMakeFiles/tcp_server.dir/DependInfo.cmake"
+  "CMakeFiles/udp_client.dir/DependInfo.cmake"
+  "CMakeFiles/udp_server.dir/DependInfo.cmake"
   "CMakeFiles/tests.dir/DependInfo.cmake"
   "external/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "external/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"

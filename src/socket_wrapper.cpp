@@ -7,7 +7,7 @@
 #include <cstring>
 #include <iostream>
 
-SocketWrapper::SocketWrapper() : sockfd_(-1), connfd_(-1), is_server_(false) {}
+SocketWrapper::SocketWrapper(Protocol protocol) : sockfd_(-1), connfd_(-1), is_server_(false), protocol_(protocol) {}
 
 SocketWrapper::~SocketWrapper() {
     if (connfd_ != -1) close (connfd_);
@@ -16,9 +16,12 @@ SocketWrapper::~SocketWrapper() {
 
 void SocketWrapper::bindAndListen(int port) {
     is_server_ = true;
-    sockfd_ = socket(AF_INET, SOCK_STREAM, 0);
+    //SOCK_STREAM for TCP, SOCK_DGRAM for UDP
+    sockfd_ = socket(AF_INET, protocol_ == Protocol::TCP ? SOCK_STREAM : SOCK_DGRAM, 0);
     if (sockfd_ < 0) throw std::runtime_error("Socket creation failed");
 
+    // bind and listen are not needed for UDP since the server does not
+    // need to ensure connection with clients
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = INADDR_ANY;
@@ -34,13 +37,15 @@ void SocketWrapper::bindAndListen(int port) {
         throw std::runtime_error(std::string("Bind failed: ") + std::strerror(errno));
     }
 
-    if (listen(sockfd_, 1) < 0) {
+    if (protocol_ == Protocol::TCP && listen(sockfd_, 1) < 0) {
         throw std::runtime_error("Listen failed");
     }
 }
 
 // wait for a client to connect
 void SocketWrapper::acceptClient() {
+    if (protocol_ == Protocol::UDP) return;
+
     sockaddr_in client_addr{};
     socklen_t len = sizeof(client_addr);
     connfd_ = accept(sockfd_, (sockaddr*)&client_addr, &len);
@@ -51,7 +56,7 @@ void SocketWrapper::acceptClient() {
 
 void SocketWrapper::connectToServer(const std::string& ip, int port) {
     is_server_ = false;
-    sockfd_ = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd_ = socket(AF_INET, protocol_ == Protocol::TCP ? SOCK_STREAM : SOCK_DGRAM, 0);
     if (sockfd_ < 0) {
         throw std::runtime_error("Socket creation failed");
     }
@@ -67,9 +72,16 @@ void SocketWrapper::connectToServer(const std::string& ip, int port) {
 }
 
 ssize_t SocketWrapper::send(const void* buf, size_t len) {
-    return ::send(is_server_ ? connfd_ : sockfd_, buf, len, 0);
+    if (protocol_ == Protocol::UDP && is_server_) {
+        return sendto(sockfd_, buf, len, 0, (sockaddr*)&last_sender_, sizeof(last_sender_));
+    }
+    return ::send((is_server_ && protocol_ == Protocol::TCP) ? connfd_ : sockfd_, buf, len, 0);
 }
 
 ssize_t SocketWrapper::receive(void* buf, size_t len) {
-    return ::recv(is_server_ ? connfd_ : sockfd_, buf, len, 0);
+    if (protocol_ == Protocol::UDP && is_server_) {
+        socklen_t addr_len = sizeof(last_sender_);
+        return recvfrom(sockfd_, buf, len, 0, (sockaddr*)&last_sender_, &addr_len);
+    }
+    return ::recv((is_server_ && protocol_ == Protocol::TCP) ? connfd_ : sockfd_, buf, len, 0);
 }
