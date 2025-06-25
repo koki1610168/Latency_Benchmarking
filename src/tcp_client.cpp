@@ -14,7 +14,7 @@ int main() {
     using Clock = std::chrono::high_resolution_clock;
     long long total_rtt_ns = 0;
 
-    const int kIterations = 1000;
+    constexpr int kIterations = 1000;
 
     for (int i = 0; i < kIterations; ++i) {
         auto t1 = Clock::now();
