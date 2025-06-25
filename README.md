@@ -6,6 +6,7 @@ A simple C++20 tool to measure network round-trip between a client and server TC
 
 ## Features
 - TCP client and echo server
+- UDP client and echo server
 - Mesaure average rount-trip time (RTT) in nanosecond over 1000 messages
 - Build with CMake
 ---
@@ -44,12 +45,12 @@ make
 ### Running
 Start the server (in terminal 1):
 ```build
-./server
+./tcp_server (or./udp_server)
 ```
 
 Start the client (in terminal 2):
 ```build
-./client
+./tcp_client (or ./udp_client)
 ```
 The client will output RTT in nanosecond for each message. \
 It also outputs an average RTT in nanosecond.
