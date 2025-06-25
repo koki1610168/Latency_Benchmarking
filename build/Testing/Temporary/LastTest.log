@@ -1,10 +1,10 @@
-Start testing: Jun 25 06:29 CDT
+Start testing: Jun 25 06:41 CDT
 ----------------------------------------------------------
 1/1 Testing: socket_wrapper_tests
 1/1 Test: socket_wrapper_tests
 Command: "/home/koki/projects/latency-benchmarking/build/tests"
 Directory: /home/koki/projects/latency-benchmarking/build
-"socket_wrapper_tests" start time: Jun 25 06:29 CDT
+"socket_wrapper_tests" start time: Jun 25 06:41 CDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/koki/projects/latency-benchmarking/external/googletest/googletest/src/gtest_main.cc
@@ -14,26 +14,26 @@ Running main() from /home/koki/projects/latency-benchmarking/external/googletest
 [ RUN      ] SocketWrapperTCPTest.TCPBindAndListenDoesNotThrow
 [       OK ] SocketWrapperTCPTest.TCPBindAndListenDoesNotThrow (0 ms)
 [ RUN      ] SocketWrapperTCPTest.CanConnectToServer
-[       OK ] SocketWrapperTCPTest.CanConnectToServerNew client connected: 127.0.0.1:54064 (100 ms)
+[       OK ] SocketWrapperTCPTest.CanConnectToServerNew client connected: 127.0.0.1: (100 ms)
+38564
 [ RUN      ] SocketWrapperTCPTest.MultiClientConnections
-
-New client connected: 127.0.0.1:42374
-New client connected: 127.0.0.1:42376
-New client connected: 127.0.0.1:42386
-New client connected: 127.0.0.1:42392
-New client connected: 127.0.0.1:42404
+New client connected: 127.0.0.1:57246
+New client connected: 127.0.0.1:57252
+New client connected: 127.0.0.1:57256
+New client connected: 127.0.0.1:57254
+New client connected: 127.0.0.1:57258
 [       OK ] SocketWrapperTCPTest.MultiClientConnections (101 ms)
-[----------] 3 tests from SocketWrapperTCPTest (201 ms total)
+[----------] 3 tests from SocketWrapperTCPTest (203 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 1 test suite ran. (201 ms total)
+[==========] 3 tests from 1 test suite ran. (203 ms total)
 [  PASSED  ] 3 tests.
 <end of output>
 Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"socket_wrapper_tests" end time: Jun 25 06:29 CDT
+"socket_wrapper_tests" end time: Jun 25 06:41 CDT
 "socket_wrapper_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 25 06:29 CDT
+End testing: Jun 25 06:41 CDT

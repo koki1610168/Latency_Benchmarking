@@ -1,2 +1,2 @@
-socket_wrapper_tests 2 0.10343
+socket_wrapper_tests 20 0.0104104
 ---

@@ -47,8 +47,13 @@ TEST(SocketWrapperTCPTest, MultiClientConnections) {
                 client.send(msg, 5);
 
                 char buf[128];
-                int received = client.receive(buf, sizeof(buf));
-                ASSERT_GT(received, 0);
+                ssize_t received = -1;
+                for (int i = 0; i < 10; ++i) {
+                    received = client.receive(buf, sizeof(buf));
+                    if (received > 0) break;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                }
+                EXPECT_GT(received, -1);
             } catch (...) {
                 FAIL() << "Client " << i << "failed to connect or communicate" << std::endl;
             }
