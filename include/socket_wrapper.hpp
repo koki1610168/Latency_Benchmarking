@@ -22,6 +22,8 @@ class SocketWrapper {
         // Server: accepts an incoming client connection
         void acceptClient();
 
+        void runEpollServerLoop();
+
         // Client: connects to a remote server with IP and port
         void connectToServer(const std::string& ip, int port);
 
@@ -34,8 +36,11 @@ class SocketWrapper {
     private:
         int sockfd_; // listening socket, it stays open
         int connfd_; // Connected socket, send/recv, only for TCP
+        int epoll_fd_;
         bool is_server_;
         Protocol protocol_;
         sockaddr_in last_sender_; // Used for UDP
+
+        void makeSocketNonBlocking(int fd);
 
 };

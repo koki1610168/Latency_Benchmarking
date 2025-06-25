@@ -172,56 +172,82 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tcp_client
+# Target rules for targets named tcp_example_client
 
 # Build rule for target.
-tcp_client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_client
-.PHONY : tcp_client
+tcp_example_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_example_client
+.PHONY : tcp_example_client
 
 # fast build rule for target.
-tcp_client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/build
-.PHONY : tcp_client/fast
+tcp_example_client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/build
+.PHONY : tcp_example_client/fast
 
 #=============================================================================
-# Target rules for targets named tcp_server
+# Target rules for targets named tcp_example_server
 
 # Build rule for target.
-tcp_server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_server
-.PHONY : tcp_server
+tcp_example_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_example_server
+.PHONY : tcp_example_server
 
 # fast build rule for target.
-tcp_server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/build
-.PHONY : tcp_server/fast
+tcp_example_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/build
+.PHONY : tcp_example_server/fast
 
 #=============================================================================
-# Target rules for targets named udp_client
+# Target rules for targets named tcp_latency_client
 
 # Build rule for target.
-udp_client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 udp_client
-.PHONY : udp_client
+tcp_latency_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_latency_client
+.PHONY : tcp_latency_client
 
 # fast build rule for target.
-udp_client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/build
-.PHONY : udp_client/fast
+tcp_latency_client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/build
+.PHONY : tcp_latency_client/fast
 
 #=============================================================================
-# Target rules for targets named udp_server
+# Target rules for targets named tcp_latency_server
 
 # Build rule for target.
-udp_server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 udp_server
-.PHONY : udp_server
+tcp_latency_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_latency_server
+.PHONY : tcp_latency_server
 
 # fast build rule for target.
-udp_server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/build
-.PHONY : udp_server/fast
+tcp_latency_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/build
+.PHONY : tcp_latency_server/fast
+
+#=============================================================================
+# Target rules for targets named udp_latency_client
+
+# Build rule for target.
+udp_latency_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 udp_latency_client
+.PHONY : udp_latency_client
+
+# fast build rule for target.
+udp_latency_client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/build
+.PHONY : udp_latency_client/fast
+
+#=============================================================================
+# Target rules for targets named udp_latency_server
+
+# Build rule for target.
+udp_latency_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 udp_latency_server
+.PHONY : udp_latency_server
+
+# fast build rule for target.
+udp_latency_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/build
+.PHONY : udp_latency_server/fast
 
 #=============================================================================
 # Target rules for targets named tests
@@ -293,10 +319,12 @@ src/socket_wrapper.o: src/socket_wrapper.cpp.o
 
 # target to build an object file
 src/socket_wrapper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/socket_wrapper.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/socket_wrapper.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/socket_wrapper.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/socket_wrapper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/socket_wrapper.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/socket_wrapper.cpp.o
 .PHONY : src/socket_wrapper.cpp.o
 
@@ -305,10 +333,12 @@ src/socket_wrapper.i: src/socket_wrapper.cpp.i
 
 # target to preprocess a source file
 src/socket_wrapper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/socket_wrapper.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/socket_wrapper.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/socket_wrapper.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/socket_wrapper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/socket_wrapper.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/socket_wrapper.cpp.i
 .PHONY : src/socket_wrapper.cpp.i
 
@@ -317,108 +347,158 @@ src/socket_wrapper.s: src/socket_wrapper.cpp.s
 
 # target to generate assembly for a file
 src/socket_wrapper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/socket_wrapper.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/socket_wrapper.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/socket_wrapper.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/socket_wrapper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/socket_wrapper.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/src/socket_wrapper.cpp.s
 .PHONY : src/socket_wrapper.cpp.s
 
-src/tcp_client.o: src/tcp_client.cpp.o
-.PHONY : src/tcp_client.o
+src/tcp_example_client.o: src/tcp_example_client.cpp.o
+.PHONY : src/tcp_example_client.o
 
 # target to build an object file
-src/tcp_client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/tcp_client.cpp.o
-.PHONY : src/tcp_client.cpp.o
+src/tcp_example_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/tcp_example_client.cpp.o
+.PHONY : src/tcp_example_client.cpp.o
 
-src/tcp_client.i: src/tcp_client.cpp.i
-.PHONY : src/tcp_client.i
+src/tcp_example_client.i: src/tcp_example_client.cpp.i
+.PHONY : src/tcp_example_client.i
 
 # target to preprocess a source file
-src/tcp_client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/tcp_client.cpp.i
-.PHONY : src/tcp_client.cpp.i
+src/tcp_example_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/tcp_example_client.cpp.i
+.PHONY : src/tcp_example_client.cpp.i
 
-src/tcp_client.s: src/tcp_client.cpp.s
-.PHONY : src/tcp_client.s
+src/tcp_example_client.s: src/tcp_example_client.cpp.s
+.PHONY : src/tcp_example_client.s
 
 # target to generate assembly for a file
-src/tcp_client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_client.dir/build.make CMakeFiles/tcp_client.dir/src/tcp_client.cpp.s
-.PHONY : src/tcp_client.cpp.s
+src/tcp_example_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_client.dir/build.make CMakeFiles/tcp_example_client.dir/src/tcp_example_client.cpp.s
+.PHONY : src/tcp_example_client.cpp.s
 
-src/tcp_server.o: src/tcp_server.cpp.o
-.PHONY : src/tcp_server.o
+src/tcp_example_server.o: src/tcp_example_server.cpp.o
+.PHONY : src/tcp_example_server.o
 
 # target to build an object file
-src/tcp_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/tcp_server.cpp.o
-.PHONY : src/tcp_server.cpp.o
+src/tcp_example_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/tcp_example_server.cpp.o
+.PHONY : src/tcp_example_server.cpp.o
 
-src/tcp_server.i: src/tcp_server.cpp.i
-.PHONY : src/tcp_server.i
+src/tcp_example_server.i: src/tcp_example_server.cpp.i
+.PHONY : src/tcp_example_server.i
 
 # target to preprocess a source file
-src/tcp_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/tcp_server.cpp.i
-.PHONY : src/tcp_server.cpp.i
+src/tcp_example_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/tcp_example_server.cpp.i
+.PHONY : src/tcp_example_server.cpp.i
 
-src/tcp_server.s: src/tcp_server.cpp.s
-.PHONY : src/tcp_server.s
+src/tcp_example_server.s: src/tcp_example_server.cpp.s
+.PHONY : src/tcp_example_server.s
 
 # target to generate assembly for a file
-src/tcp_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_server.dir/build.make CMakeFiles/tcp_server.dir/src/tcp_server.cpp.s
-.PHONY : src/tcp_server.cpp.s
+src/tcp_example_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_example_server.dir/build.make CMakeFiles/tcp_example_server.dir/src/tcp_example_server.cpp.s
+.PHONY : src/tcp_example_server.cpp.s
 
-src/udp_client.o: src/udp_client.cpp.o
-.PHONY : src/udp_client.o
+src/tcp_latency_client.o: src/tcp_latency_client.cpp.o
+.PHONY : src/tcp_latency_client.o
 
 # target to build an object file
-src/udp_client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/udp_client.cpp.o
-.PHONY : src/udp_client.cpp.o
+src/tcp_latency_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/tcp_latency_client.cpp.o
+.PHONY : src/tcp_latency_client.cpp.o
 
-src/udp_client.i: src/udp_client.cpp.i
-.PHONY : src/udp_client.i
+src/tcp_latency_client.i: src/tcp_latency_client.cpp.i
+.PHONY : src/tcp_latency_client.i
 
 # target to preprocess a source file
-src/udp_client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/udp_client.cpp.i
-.PHONY : src/udp_client.cpp.i
+src/tcp_latency_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/tcp_latency_client.cpp.i
+.PHONY : src/tcp_latency_client.cpp.i
 
-src/udp_client.s: src/udp_client.cpp.s
-.PHONY : src/udp_client.s
+src/tcp_latency_client.s: src/tcp_latency_client.cpp.s
+.PHONY : src/tcp_latency_client.s
 
 # target to generate assembly for a file
-src/udp_client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_client.dir/build.make CMakeFiles/udp_client.dir/src/udp_client.cpp.s
-.PHONY : src/udp_client.cpp.s
+src/tcp_latency_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_client.dir/build.make CMakeFiles/tcp_latency_client.dir/src/tcp_latency_client.cpp.s
+.PHONY : src/tcp_latency_client.cpp.s
 
-src/udp_server.o: src/udp_server.cpp.o
-.PHONY : src/udp_server.o
+src/tcp_latency_server.o: src/tcp_latency_server.cpp.o
+.PHONY : src/tcp_latency_server.o
 
 # target to build an object file
-src/udp_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/udp_server.cpp.o
-.PHONY : src/udp_server.cpp.o
+src/tcp_latency_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/tcp_latency_server.cpp.o
+.PHONY : src/tcp_latency_server.cpp.o
 
-src/udp_server.i: src/udp_server.cpp.i
-.PHONY : src/udp_server.i
+src/tcp_latency_server.i: src/tcp_latency_server.cpp.i
+.PHONY : src/tcp_latency_server.i
 
 # target to preprocess a source file
-src/udp_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/udp_server.cpp.i
-.PHONY : src/udp_server.cpp.i
+src/tcp_latency_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/tcp_latency_server.cpp.i
+.PHONY : src/tcp_latency_server.cpp.i
 
-src/udp_server.s: src/udp_server.cpp.s
-.PHONY : src/udp_server.s
+src/tcp_latency_server.s: src/tcp_latency_server.cpp.s
+.PHONY : src/tcp_latency_server.s
 
 # target to generate assembly for a file
-src/udp_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_server.dir/build.make CMakeFiles/udp_server.dir/src/udp_server.cpp.s
-.PHONY : src/udp_server.cpp.s
+src/tcp_latency_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tcp_latency_server.dir/build.make CMakeFiles/tcp_latency_server.dir/src/tcp_latency_server.cpp.s
+.PHONY : src/tcp_latency_server.cpp.s
+
+src/udp_latency_client.o: src/udp_latency_client.cpp.o
+.PHONY : src/udp_latency_client.o
+
+# target to build an object file
+src/udp_latency_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/udp_latency_client.cpp.o
+.PHONY : src/udp_latency_client.cpp.o
+
+src/udp_latency_client.i: src/udp_latency_client.cpp.i
+.PHONY : src/udp_latency_client.i
+
+# target to preprocess a source file
+src/udp_latency_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/udp_latency_client.cpp.i
+.PHONY : src/udp_latency_client.cpp.i
+
+src/udp_latency_client.s: src/udp_latency_client.cpp.s
+.PHONY : src/udp_latency_client.s
+
+# target to generate assembly for a file
+src/udp_latency_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_client.dir/build.make CMakeFiles/udp_latency_client.dir/src/udp_latency_client.cpp.s
+.PHONY : src/udp_latency_client.cpp.s
+
+src/udp_latency_server.o: src/udp_latency_server.cpp.o
+.PHONY : src/udp_latency_server.o
+
+# target to build an object file
+src/udp_latency_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/udp_latency_server.cpp.o
+.PHONY : src/udp_latency_server.cpp.o
+
+src/udp_latency_server.i: src/udp_latency_server.cpp.i
+.PHONY : src/udp_latency_server.i
+
+# target to preprocess a source file
+src/udp_latency_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/udp_latency_server.cpp.i
+.PHONY : src/udp_latency_server.cpp.i
+
+src/udp_latency_server.s: src/udp_latency_server.cpp.s
+.PHONY : src/udp_latency_server.s
+
+# target to generate assembly for a file
+src/udp_latency_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/udp_latency_server.dir/build.make CMakeFiles/udp_latency_server.dir/src/udp_latency_server.cpp.s
+.PHONY : src/udp_latency_server.cpp.s
 
 tests/test_socket_wrapper.o: tests/test_socket_wrapper.cpp.o
 .PHONY : tests/test_socket_wrapper.o
@@ -461,26 +541,34 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... tcp_client"
-	@echo "... tcp_server"
+	@echo "... tcp_example_client"
+	@echo "... tcp_example_server"
+	@echo "... tcp_latency_client"
+	@echo "... tcp_latency_server"
 	@echo "... tests"
-	@echo "... udp_client"
-	@echo "... udp_server"
+	@echo "... udp_latency_client"
+	@echo "... udp_latency_server"
 	@echo "... src/socket_wrapper.o"
 	@echo "... src/socket_wrapper.i"
 	@echo "... src/socket_wrapper.s"
-	@echo "... src/tcp_client.o"
-	@echo "... src/tcp_client.i"
-	@echo "... src/tcp_client.s"
-	@echo "... src/tcp_server.o"
-	@echo "... src/tcp_server.i"
-	@echo "... src/tcp_server.s"
-	@echo "... src/udp_client.o"
-	@echo "... src/udp_client.i"
-	@echo "... src/udp_client.s"
-	@echo "... src/udp_server.o"
-	@echo "... src/udp_server.i"
-	@echo "... src/udp_server.s"
+	@echo "... src/tcp_example_client.o"
+	@echo "... src/tcp_example_client.i"
+	@echo "... src/tcp_example_client.s"
+	@echo "... src/tcp_example_server.o"
+	@echo "... src/tcp_example_server.i"
+	@echo "... src/tcp_example_server.s"
+	@echo "... src/tcp_latency_client.o"
+	@echo "... src/tcp_latency_client.i"
+	@echo "... src/tcp_latency_client.s"
+	@echo "... src/tcp_latency_server.o"
+	@echo "... src/tcp_latency_server.i"
+	@echo "... src/tcp_latency_server.s"
+	@echo "... src/udp_latency_client.o"
+	@echo "... src/udp_latency_client.i"
+	@echo "... src/udp_latency_client.s"
+	@echo "... src/udp_latency_server.o"
+	@echo "... src/udp_latency_server.i"
+	@echo "... src/udp_latency_server.s"
 	@echo "... tests/test_socket_wrapper.o"
 	@echo "... tests/test_socket_wrapper.i"
 	@echo "... tests/test_socket_wrapper.s"

@@ -6,12 +6,26 @@
 #include <cerrno>
 #include <cstring>
 #include <iostream>
+#include <fcntl.h>
+#include <sys/epoll.h>
+#include <unistd.h>
+
+// max events that epoll will listen to
+constexpr int MAX_EVENTS = 64;
 
 SocketWrapper::SocketWrapper(Protocol protocol) : sockfd_(-1), connfd_(-1), is_server_(false), protocol_(protocol) {}
 
 SocketWrapper::~SocketWrapper() {
     if (connfd_ != -1) close (connfd_);
     if (sockfd_ != -1) close (sockfd_);
+    if (epoll_fd_ != -1) close (epoll_fd_);
+}
+
+void SocketWrapper::makeSocketNonBlocking(int fd) {
+    int flags = fcntl(fd, F_GETFL, 0);
+    if (flags == -1 || fcntl(fd, F_SETFL, flags | O_NONBLOCK) == -1) {
+        throw std::runtime_error("Failed to make socket non-blocking");
+    }
 }
 
 void SocketWrapper::bindAndListen(int port) {
@@ -37,8 +51,26 @@ void SocketWrapper::bindAndListen(int port) {
         throw std::runtime_error(std::string("Bind failed: ") + std::strerror(errno));
     }
 
-    if (protocol_ == Protocol::TCP && listen(sockfd_, 1) < 0) {
-        throw std::runtime_error("Listen failed");
+    if (protocol_ == Protocol::TCP) {
+        makeSocketNonBlocking(sockfd_);
+
+        if (listen(sockfd_, SOMAXCONN) < 0) {
+            throw std::runtime_error("listen failed");
+        }
+
+        epoll_fd_ = epoll_create1(0);
+        if (epoll_fd_ == -1) {
+            throw std::runtime_error("Failed to create epoll isntance");
+        }
+
+        epoll_event ev{};
+        ev.data.fd = sockfd_;
+        // This specifies that we want to know when the socket is ready to read
+        ev.events = EPOLLIN;
+        // Registers the listening socket fd with the epoll instance
+        if (epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, sockfd_, &ev) == -1) {
+            throw std::runtime_error("Failed to add listen socket to epoll");
+        }
     }
 }
 
@@ -51,6 +83,44 @@ void SocketWrapper::acceptClient() {
     connfd_ = accept(sockfd_, (sockaddr*)&client_addr, &len);
     if (connfd_ < 0) {
         throw std::runtime_error("Accept failed");
+    }
+}
+
+void SocketWrapper::runEpollServerLoop() {
+    if (protocol_ != Protocol::TCP || epoll_fd_ == -1) {
+        throw std::runtime_error("Epoll is only supported for TCP");
+    }
+
+    epoll_event events[MAX_EVENTS];
+
+    while (true) {
+        int n = epoll_wait(epoll_fd_, events, MAX_EVENTS, -1);
+        for (int i = 0; i < n; ++i) {
+            if (events[i].data.fd == sockfd_) {
+                // Accept new connection, create a client socket
+                sockaddr_in client_addr{};
+                socklen_t client_len = sizeof(client_addr);
+                int client_fd = accept(sockfd_, (sockaddr*)&client_addr, &client_len);
+                if (client_fd < 0) continue;
+
+                makeSocketNonBlocking(client_fd);
+                
+                // Add the newly created socket to epoll watchlist
+                epoll_event client_ev{};
+                client_ev.data.fd = client_fd;
+                client_ev.events = EPOLLIN;
+                epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, client_fd, &client_ev);
+            } else {
+                // Handle client data
+                char buf[512];
+                ssize_t count = recv(events[i].data.fd, buf, sizeof(buf), 0);
+                if (count <= 0) {
+                    close(events[i].data.fd);
+                } else {
+                    ::send(events[i].data.fd, buf, count, 0);
+                }
+            }
+        }
     }
 }
 

@@ -5,7 +5,7 @@
 int main() {
     SocketWrapper server(Protocol::TCP);
     server.bindAndListen(12345);
-    // std::cout << "Server listening on port 12345" << std::endl;
+    std::cout << "Server listening on port 12345" << std::endl;
 
     server.acceptClient();
     // std::cout << "Client connected" << std::endl;
